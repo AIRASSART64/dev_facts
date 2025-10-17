@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewFact() {
+  const navigate = useNavigate();
   const [fact, setFact] = useState("");
   const [techno, setTechno] = useState("");
   const [message, setMessage] = useState("");
@@ -23,6 +25,7 @@ function NewFact() {
         setMessage("Fact créé avec succès !");
         setFact("");
         setTechno("");
+       
       } else {
         console.error("Erreur:", data);
         setMessage(
@@ -31,6 +34,8 @@ function NewFact() {
             : "Une erreur est survenue lors de la création."
         );
       }
+      navigate("/facts")
+      
     } catch (error) {
       console.error(error);
       setMessage("Erreur de connexion au serveur");

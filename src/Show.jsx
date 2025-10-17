@@ -40,20 +40,21 @@ function Show() {
           
           <h3> Anecdote numero  : {fact.id}</h3>
           <p> {fact.fact}</p>
-          <p> Type ou techno : {fact.techno}</p>
+          <p> Techno : {fact.techno}</p>
 
         </article>
-
+      <div className="button-group">
+        <button className="returnButton"><Link to="/facts">Toutes les anecdotes </Link></button>
+       
       <button onClick={() => navigate(`/facts/update/${id}`)}>
         Modifier
       </button>
- 
-
       <div>
         <Delete/>
       </div>
+      </div>
 
-        <Link to="/facts">← Quid </Link>
+       
     </>
   );
 }

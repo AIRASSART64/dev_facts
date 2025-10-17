@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function Update() {
+  const navigate = useNavigate();
   const {id } = useParams();
   const [fact, setFact] = useState("");
   const [techno, setTechno] = useState("");
   const [message, setMessage] = useState("");
+  
 
     useEffect(() => {
     const fetchFact = async () => {
@@ -43,6 +45,7 @@ function Update() {
             : "Une erreur est survenue lors de la modification."
         );
       }
+      navigate("/facts");
     } catch (error) {
       console.error(error);
       setMessage("Erreur de connexion au serveur");

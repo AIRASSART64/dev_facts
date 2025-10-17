@@ -36,14 +36,19 @@ function Facts() {
 
   return (
     <>
-      <h2>Quid </h2>
+      <h2>Toutes les anecdotes </h2>
       {facts.map((fact, index) => ( 
-        <article key={index}>  
-          <h3> Anecdote numero  : {fact.id}</h3>
-          <p> {fact.fact}</p>
-          <p> {fact.techno}</p>
-          <Link to={`/facts/${fact.id}`}> Voir le détail </Link>
-        </article>
+          <Link 
+    key={index} 
+    to={`/facts/${fact.id}`} 
+    className="fact-link"
+  >
+    <article>  
+      <h3>Anecdote numéro : {fact.id}</h3>
+      <p>{fact.fact}</p>
+    
+    </article>
+  </Link>
       ))}
     </>
   );

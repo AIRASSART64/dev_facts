@@ -18,11 +18,10 @@ function Delete() {
       });
       if (!response.ok) throw new Error("Erreur lors de la suppression");
       navigate("/facts");
+      setLoading(false);
     } catch (error) {
      setError("Impossible de supprimer l'anecdote ");
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   if (error) return <p>{error}</p>;
