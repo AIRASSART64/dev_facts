@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+
+import Update from "./Update";
 import Delete from "./Delete";
+
 
 function Show() {
    const {id} = useParams();
@@ -39,9 +42,16 @@ function Show() {
           <p> Type ou techno : {fact.techno}</p>
 
         </article>
+
+
+        <div>
+          <Update />
+        </div> 
+
       <div>
         <Delete/>
       </div>
+
         <Link to="/facts">← Quid </Link>
     </>
   );

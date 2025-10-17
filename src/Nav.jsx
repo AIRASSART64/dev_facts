@@ -10,7 +10,6 @@ function Nav() {
                 <ul>
                     <li><NavLink to="/facts">Facts</NavLink> </li>
                     <li><NavLink to="/facts/new">New Fact</NavLink> </li>
-
                 </ul>
             </nav>   
         
