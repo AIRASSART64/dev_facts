@@ -5,6 +5,7 @@ import Show from './Show'
 import './App.css'
 import Nav from './Nav'
 import NewFact from './NewFact'
+import Update from './Update'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/facts" element={< Facts/>}/> 
         <Route path="/facts/:id" element={< Show/>}/> 
         <Route path="/facts/new" element={<NewFact/>}/> 
+        <Route path="/facts/update/:id" element={<Update/>}/> 
       </Routes>
     </>
   )

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import Update from "./Update";
 
 function Show() {
 
@@ -39,6 +40,10 @@ function Show() {
           <p> Type ou techno : {fact.techno}</p>
 
         </article>
+
+        {/* <div>
+          <Update />
+        </div> */}
 
         <Link to="/facts">← Quid </Link>
     </>
