@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 import Update from "./Update";
 import Delete from "./Delete";
 
 
 function Show() {
-   const {id} = useParams();
+  const navigate = useNavigate();
+  const {id} = useParams();
   const [fact, setFact] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
@@ -43,10 +44,10 @@ function Show() {
 
         </article>
 
-
-        <div>
-          <Update />
-        </div> 
+      <button onClick={() => navigate(`/facts/update/${id}`)}>
+        Modifier
+      </button>
+ 
 
       <div>
         <Delete/>

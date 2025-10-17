@@ -6,12 +6,13 @@ import './App.css'
 import Nav from './Nav'
 import NewFact from './NewFact'
 import Update from './Update'
+import Header from './Header'
 
 function App() {
 
   return (
     <>
-      <Nav />
+      <Header />
       <Routes>
         <Route path="/facts" element={< Facts/>}/> 
         <Route path="/facts/:id" element={< Show/>}/> 

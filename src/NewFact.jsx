@@ -40,6 +40,7 @@ function NewFact() {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Créer un nouveau Fact</h2>
+      <label htmlFor="fact">Fact :</label>
       <input
         type="text"
         placeholder="Le fact (ex: React est cool)"
@@ -47,7 +48,7 @@ function NewFact() {
         onChange={(e) => setFact(e.target.value)}
         required
       />
-
+      <label htmlFor="techno">Techno :</label>
       <input
         type="text"
         placeholder="La techno (ex: React)"
