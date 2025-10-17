@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Facts from './Facts'
-import NewFact from './NewFact'
+import Show from './Show'
 import './App.css'
 import Nav from './Nav'
+import NewFact from './NewFact'
 
 function App() {
 
@@ -11,12 +12,13 @@ function App() {
     <>
       <Nav />
       <Routes>
-        <Route path="/" element={< Facts/>}/> 
-        <Route path="/new" element={< NewFact/>}/> 
-
+        <Route path="/facts" element={< Facts/>}/> 
+        <Route path="/facts/:id" element={< Show/>}/> 
+        <Route path="/facts/new" element={<NewFact/>}/> 
       </Routes>
     </>
   )
 }
+
 
 export default App
