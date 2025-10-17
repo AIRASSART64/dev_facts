@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Facts() {
 
@@ -41,6 +42,7 @@ function Facts() {
           <h3> Anecdote numero  : {fact.id}</h3>
           <p> {fact.fact}</p>
           <p> {fact.techno}</p>
+          <Link to={`/facts/${fact.id}`}> Voir le détail </Link>
         </article>
       ))}
     </>
