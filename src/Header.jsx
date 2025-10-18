@@ -5,11 +5,11 @@ function Header() {
     return(
 
         <>
-     <header className="header">
-      <div className="header-container">
-        <h1>Dev Quid</h1>
+     <header>
+     
+        <h1>Dev quid</h1>
         <Nav />
-      </div>
+      
     </header>
         </>
     )

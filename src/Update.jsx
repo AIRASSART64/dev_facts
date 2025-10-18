@@ -55,19 +55,19 @@ function Update() {
   return (
     <>
     <form onSubmit={handleSubmit}>
-      <h2>Modifier le Fact</h2>
-      <label htmlFor="fact">Fact :</label>
-      <input
-        type="text"
-        value={fact}
-        onChange={(e) => setFact(e.target.value)}
-        required
-      />
-      <label htmlFor="techno">Techno :</label>
+      <h2>Modifier l'anecdote</h2>
+      <label htmlFor="techno">Théme ou techno concérné:</label>
       <input
         type="text"
         value={techno}
         onChange={(e) => setTechno(e.target.value)}
+        required
+      />
+      <label htmlFor="fact">L'adecdote :</label>
+      <input
+        type="text"
+        value={fact}
+        onChange={(e) => setFact(e.target.value)}
         required
       />
 

@@ -18,10 +18,11 @@ function Facts() {
       }
       const data = await response.json(); 
        console.log("Data reçue :", data);
-    
-      setFacts(data.member); 
+       const sortedFacts = data.member.sort((a, b) => b.id - a.id);
+      setFacts(sortedFacts); 
       setLoading(false); 
     } catch (error) {
+      setLoading(false); 
       setError("Impossible de récupérer la data");
     
     }
@@ -36,21 +37,18 @@ function Facts() {
 
   return (
     <>
-      <h2>Toutes les anecdotes </h2>
-      {facts.map((fact, index) => ( 
-          <Link 
-    key={index} 
-    to={`/facts/${fact.id}`} 
-    className="fact-link"
-  >
-    <article>  
-      <h3>Anecdote numéro : {fact.id}</h3>
-      <p>{fact.fact}</p>
-    
-    </article>
-  </Link>
-      ))}
-    </>
+
+  <div className="facts-container">
+    {facts.map((fact, index) => (
+      <Link key={index} to={`/facts/${fact.id}`} className="fact-link">
+        <article>
+          <div className="techno">{fact.techno}</div>
+          <p>{fact.fact.length > 100 ? fact.fact.slice(0, 100) + "..." : fact.fact}</p>
+        </article>
+      </Link>
+    ))}
+  </div>
+</>
   );
 }
 
