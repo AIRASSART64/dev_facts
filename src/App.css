@@ -24,7 +24,7 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #f5f6f7;
+  background-color: #e1e7ec;
   color: var(--dark);
 }
 
@@ -90,7 +90,9 @@ nav a:not(.active) {
 h1 {
   color: white;
   margin: 0 0 0 5%; 
-  font-size: 3rem; 
+  font-size: 4rem; 
+  font-family:cursive;
+  font-weight: bold;
   
 }
 
@@ -108,8 +110,9 @@ h2 {
   font-family: var(--font-heading);
   color: var(--dark);
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  
 }
 
 h3 {
@@ -167,6 +170,7 @@ article:hover {
 /* Texte de l’anecdote */
 article p {
   color: var(--dark);
+  font-family: cursive;
   margin-bottom: 0.5rem;
   padding: 5%;
   /* display: -webkit-box;
@@ -225,6 +229,7 @@ article p {
   padding: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
+  font-family: cursive;
   color: var(--dark);
   text-align: justify;
   margin: 0;
@@ -273,6 +278,18 @@ button a {
   text-decoration: none;
 }
 
+.related-section {
+  margin-top: 3rem;
+  border-top: 2px solid #eee;
+  padding-top: 2rem;
+}
+
+.related-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
 
 /* ===========================
    BOUTONS
@@ -332,6 +349,20 @@ form input {
 }
 
 form input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+form textarea {
+  padding: 0.8rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  resize: vertical; /* ✅ permet d’agrandir la zone au besoin */
+  font-family: var(--font-body);
+  min-height: 120px;
+}
+
+form textarea:focus {
   border-color: var(--primary);
   outline: none;
 }
