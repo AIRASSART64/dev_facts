@@ -13,6 +13,8 @@ function Show() {
   const [error, setError] = useState(null);
   const [relatedFacts, setRelatedFacts] = useState([]);
 
+  // récupére les données du fact séléctionné par son id pour affichage du résultat dans le format de la page show
+
   async function fetchFact () { 
     try {
       setLoading(true);
@@ -25,13 +27,17 @@ function Show() {
       setError("Impossible de récupérer la data");
     }
   };
+
+  // récupération des facts qui ont le même donnée techno que le fact précédent
   async function fetchRelatedFacts(techno) {
     try {
       const response = await fetch("/api/facts");
       const data = await response.json();
-      const sameTechFacts = data.member.filter(
-        (item) => item.techno === techno && item.id !== parseInt(id)
-      );
+      const sameTechFacts = data.member.filter( 
+        // filtrage des facts par techno en excluant le fact précédent
+        (fact) => fact.techno === techno && fact.id !== parseInt(id)
+      ); 
+      
       setRelatedFacts(sameTechFacts);
     } catch (error) {
       console.error("Erreur lors du chargement des facts similaires :", error);
@@ -41,7 +47,7 @@ function Show() {
   useEffect(() => {
    fetchFact();
   }, [id]);
-
+// vérification que fact et fact techno existe bien pour lancer fetchRelatedFacts qui dépend du fact principal
   useEffect(() => {
     if (fact && fact.techno) {
       fetchRelatedFacts(fact.techno);
@@ -70,7 +76,7 @@ function Show() {
 
       <Delete />
     </div>
-
+{/* instruction en js pour afficher les facts reliees aprés vérification de leur existance */}
     {relatedFacts.length > 0 && (
         <div className="related-section">
           <h3>Autres anecdotes sur {fact.techno}</h3>
