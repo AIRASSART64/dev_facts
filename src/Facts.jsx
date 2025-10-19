@@ -31,6 +31,7 @@ function Facts() {
   useEffect(() => { 
    fetchFacts(); 
   }, []);
+  
   // useEffect controle la fonction de récupération des données et permet d'éviter les boucles infinies.
   // Aptrés une modification, une suppression ou une création d'un fact, le retour à la liste des facts entraine un remontage du tableau des facts ce qui déclenche useEffect 
 
@@ -42,9 +43,11 @@ function Facts() {
 
   <div className="facts-container">
     {facts.map((fact, index) => ( // map permet de boucler pour afficher toutes les facts
-      <Link key={index} to={`/facts/${fact.id}`} className="fact-link">
+    // link vers show de l'anecdote via l'id
+      <Link key={index} to={`/facts/${fact.id}`} className="fact-link"> 
         <article>
           <h2 className="techno">{fact.techno}</h2>
+          {/* on homogénise l'affichage des anecdotes en limiatnt l'affichage des textes */}
           <p>{fact.fact.length > 100 ? fact.fact.slice(0, 100) + "..." : fact.fact}</p> 
         </article>
       </Link>

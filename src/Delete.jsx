@@ -7,7 +7,7 @@ function Delete() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  
+  // execution du delete aprés activation du button
   const handleDelete = async () => {
     if (!window.confirm("Voulez-vous vraiment supprimer cette anecdote ?")) return;
 

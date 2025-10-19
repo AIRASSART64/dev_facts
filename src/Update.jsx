@@ -64,12 +64,7 @@ function Update() {
         required
       />
       <label htmlFor="fact">L'adecdote :</label>
-      {/* <input
-        type="text"
-        value={fact}
-        onChange={(e) => setFact(e.target.value)}
-        required
-      /> */}
+    
        <textarea
         value={fact}
         onChange={(e) => setFact(e.target.value)}
