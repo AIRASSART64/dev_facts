@@ -6,7 +6,7 @@
   --dark: #2d3436;
   --light: #ffffff;
   --radius: 14px;
-  --shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  /* --shadow: 0 6px 20px rgba(0, 0, 0, 0.1); */
   --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
   --transition: 0.3s ease;
   --font-body: 'Inter', sans-serif;
@@ -29,7 +29,7 @@ body {
 }
 
 #root {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin:0 auto;
  
 }
@@ -37,19 +37,21 @@ body {
 /* ===========================
    HEADER / NAVIGATION
 =========================== */
-.header{
- background-color: var(--dark);
- margin-bottom: 2%;
+header {
+  background-color: rgb(39, 38, 38);
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2%;
 }
 
 nav {
- background-color: var(--dark);
+
   padding: 1.2rem 3rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
+
+
 }
 
 nav ul {
@@ -64,20 +66,42 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
 }
 
-nav a:hover,
+
+nav a:hover {
+  color: var(--primary);
+}
+
+
 nav a.active {
   color: var(--primary);
+}
+
+nav a:not(.active) {
+  color: var(--light);
 }
 
 /* ===========================
    TITRES
 =========================== */
 h1 {
-  color: #ddd;
-  text-align: center;
-  margin: 2% 0 1%  0;
+  color: white;
+  margin: 0 0 0 5%; 
+  font-size: 3rem; 
+  
+}
+
+.site-title {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-title:hover {
+  color: white; 
 }
 
 h2 {
@@ -97,21 +121,30 @@ h3 {
 
 /* ===========================
    FACTS GRID
-=========================== */
+=========================== */ 
 .facts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  justify-items: center;
+  align-items: stretch; /* 💡 force les cartes à avoir la même hauteur */
+  margin: 2rem;
 }
 
+/* Chaque carte */
 article {
   background-color: var(--light);
-  padding: 2rem;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
   transition: var(--transition);
   cursor: pointer;
-  margin-bottom: 1%;
+  width: 100%;
+  max-width: 350px;
+  min-height: 150px; 
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
 }
 
 article:hover {
@@ -119,10 +152,127 @@ article:hover {
   box-shadow: var(--shadow-hover);
 }
 
+/* Bloc techno en haut */
+.techno {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+/* Texte de l’anecdote */
 article p {
   color: var(--dark);
   margin-bottom: 0.5rem;
+  padding: 5%;
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.5;
+  height: calc(1.5em * 4);  
 }
+
+/* Lien global */
+.fact-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+/* ===========================
+   Page show
+=========================== */
+
+.show-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  background-color: var(--light);
+  border-radius: var(--radius);
+  /* box-shadow: var(--shadow); */
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.show-container:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Titre techno — style “bandeau” */
+.show-container h2 {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: var(--font-heading);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  margin: 0; /* Supprime tout espace au-dessus */
+}
+
+/* Texte de l’anecdote */
+.show-container p {
+  padding: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--dark);
+  text-align: justify;
+  margin: 0;
+}
+
+/* Boutons */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Boutons uniformes */
+button {
+  background: var(--primary);
+  border: none;
+  color: var(--light);
+  font-weight: 600;
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.returnButton {
+  background-color: #121212;
+}
+
+.deleteButton {
+  background-color: #d63031;
+}
+
+/* Liens dans les boutons */
+button a {
+  color: white;
+  text-decoration: none;
+}
+
 
 /* ===========================
    BOUTONS
@@ -222,5 +372,31 @@ p.message {
 
   .button-group {
     flex-direction: column;
+  }
+}
+@media (max-width: 1000px) {
+  .facts-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .facts-container {
+    grid-template-columns: 1fr;
+  }
+
+  article {
+    max-width: 100%;
+    min-height: 200px;
+  }
+}
+@media (max-width: 700px) {
+  .show-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .show-container p {
+    font-size: 1rem;
   }
 }

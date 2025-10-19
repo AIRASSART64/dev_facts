@@ -34,28 +34,24 @@ function Show() {
 
 
   return (
-    <>
-     
-        <article >  
-          
-          <h3> Anecdote numero  : {fact.id}</h3>
-          <p> {fact.fact}</p>
-          <p> Techno : {fact.techno}</p>
+   <>
+    <div className="show-container">
+      <h2>{fact.techno}</h2>
+      <p>{fact.fact}</p>
+    </div>
 
-        </article>
-      <div className="button-group">
-        <button className="returnButton"><Link to="/facts">Toutes les anecdotes </Link></button>
-       
+    <div className="button-group">
+      <button className="returnButton">
+        <Link to="/facts">Retour liste</Link>
+      </button>
+
       <button onClick={() => navigate(`/facts/update/${id}`)}>
         Modifier
       </button>
-      <div>
-        <Delete/>
-      </div>
-      </div>
 
-       
-    </>
+      <Delete />
+    </div>
+  </>
   );
 }
 export default Show;

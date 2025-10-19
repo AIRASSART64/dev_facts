@@ -1,15 +1,19 @@
 import Nav from "./Nav"
+import { Link } from "react-router-dom"
+
 
 function Header() {
 
     return(
 
         <>
-     <header className="header">
-      <div className="header-container">
-        <h1>Dev Quid</h1>
+     <header>
+     
+          <h1>
+          <Link to="/facts" className="site-title">Dev quid</Link>
+        </h1>
         <Nav />
-      </div>
+      
     </header>
         </>
     )
