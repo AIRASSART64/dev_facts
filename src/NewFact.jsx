@@ -54,13 +54,14 @@ function NewFact() {
         required
       />
       <label htmlFor="fact">L'adecdote :</label>
-      <input
-        type="text"
-        placeholder="Rédigez votre texte (ex: React est cool)"
+      <textarea
+        id="fact"
+        placeholder="Rédigez votre texte (ex : React est cool)"
         value={fact}
         onChange={(e) => setFact(e.target.value)}
         required
-      />
+        rows="5"
+      ></textarea>
       <button
         type="submit"
       >

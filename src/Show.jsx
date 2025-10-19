@@ -11,6 +11,7 @@ function Show() {
   const [fact, setFact] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
+  const [relatedFacts, setRelatedFacts] = useState([]);
 
   async function fetchFact () { 
     try {
@@ -24,10 +25,28 @@ function Show() {
       setError("Impossible de récupérer la data");
     }
   };
+  async function fetchRelatedFacts(techno) {
+    try {
+      const response = await fetch("/api/facts");
+      const data = await response.json();
+      const sameTechFacts = data.member.filter(
+        (item) => item.techno === techno && item.id !== parseInt(id)
+      );
+      setRelatedFacts(sameTechFacts);
+    } catch (error) {
+      console.error("Erreur lors du chargement des facts similaires :", error);
+    }
+  }
 
   useEffect(() => {
    fetchFact();
   }, [id]);
+
+  useEffect(() => {
+    if (fact && fact.techno) {
+      fetchRelatedFacts(fact.techno);
+    }
+  }, [fact]);
 
   if (loading) return <p>Merci de patienter pendant le chargement</p>;
   if (error) return <p>{error}</p>;
@@ -51,6 +70,32 @@ function Show() {
 
       <Delete />
     </div>
+
+    {relatedFacts.length > 0 && (
+        <div className="related-section">
+          <h3>Autres anecdotes sur {fact.techno}</h3>
+          <div className="facts-container">
+            {relatedFacts.map((related) => (
+              <Link
+                key={related.id}
+                to={`/facts/${related.id}`}
+                className="fact-link"
+              >
+                <article>
+                  <div className="techno">{related.techno}</div>
+                  <p>
+                    {related.fact.length > 100
+                      ? related.fact.slice(0, 100) + "..."
+                      : related.fact}
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+
   </>
   );
 }

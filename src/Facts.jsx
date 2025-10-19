@@ -44,7 +44,7 @@ function Facts() {
     {facts.map((fact, index) => ( // map permet de boucler pour afficher toutes les facts
       <Link key={index} to={`/facts/${fact.id}`} className="fact-link">
         <article>
-          <div className="techno">{fact.techno}</div>
+          <h2 className="techno">{fact.techno}</h2>
           <p>{fact.fact.length > 100 ? fact.fact.slice(0, 100) + "..." : fact.fact}</p> 
         </article>
       </Link>
