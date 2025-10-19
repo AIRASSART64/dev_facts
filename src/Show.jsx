@@ -42,7 +42,7 @@ function Show() {
 
     <div className="button-group">
       <button className="returnButton">
-        <Link to="/facts">Toutes les anecdotes</Link>
+        <Link to="/facts">Retour liste</Link>
       </button>
 
       <button onClick={() => navigate(`/facts/update/${id}`)}>

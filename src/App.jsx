@@ -1,9 +1,8 @@
-import { useState } from 'react'
+
 import { Routes, Route } from 'react-router-dom'
 import Facts from './Facts'
 import Show from './Show'
 import './App.css'
-import Nav from './Nav'
 import NewFact from './NewFact'
 import Update from './Update'
 import Header from './Header'
@@ -14,6 +13,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={< Facts/>}/> 
         <Route path="/facts" element={< Facts/>}/> 
         <Route path="/facts/:id" element={< Show/>}/> 
         <Route path="/facts/new" element={<NewFact/>}/> 

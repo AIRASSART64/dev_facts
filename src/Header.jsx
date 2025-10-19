@@ -1,4 +1,6 @@
 import Nav from "./Nav"
+import { Link } from "react-router-dom"
+
 
 function Header() {
 
@@ -7,7 +9,9 @@ function Header() {
         <>
      <header>
      
-        <h1>Dev quid</h1>
+          <h1>
+          <Link to="/facts" className="site-title">Dev quid</Link>
+        </h1>
         <Nav />
       
     </header>

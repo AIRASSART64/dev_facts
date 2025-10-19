@@ -66,23 +66,42 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
 }
 
-nav a:hover,
+
+nav a:hover {
+  color: var(--primary);
+}
+
+
 nav a.active {
   color: var(--primary);
+}
+
+nav a:not(.active) {
+  color: var(--light);
 }
 
 /* ===========================
    TITRES
 =========================== */
 h1 {
-  color: var(--primary);
+  color: white;
   margin: 0 0 0 5%; 
   font-size: 3rem; 
   
+}
 
-  
+.site-title {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-title:hover {
+  color: white; 
 }
 
 h2 {
