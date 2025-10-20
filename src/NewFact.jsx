@@ -12,6 +12,7 @@ function NewFact() {
 
     try {
       const response = await fetch("/api/facts", {
+        // logique pour ajouter un nouvel élément : indication de la méthod, des paramétres de format de l'info envoyée et le parmétre du contenu envoyé
         method: "POST",
         headers: {
           "Content-Type": "application/ld+json",
@@ -44,8 +45,8 @@ function NewFact() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Créer un nouveau Fact</h2>
-      <label htmlFor="techno">Théme ou techno concérné:</label>
+      <h2>Ajouter une nouvelle anecdote</h2>
+      <label htmlFor="techno">Théme ou techno :</label>
       <input
         type="text"
         placeholder="La techno (ex: React)"
@@ -53,7 +54,7 @@ function NewFact() {
         onChange={(e) => setTechno(e.target.value)}
         required
       />
-      <label htmlFor="fact">L'adecdote :</label>
+      <label htmlFor="fact">L'anecdote :</label>
       <textarea
         id="fact"
         placeholder="Rédigez votre texte (ex : React est cool)"
@@ -65,7 +66,7 @@ function NewFact() {
       <button
         type="submit"
       >
-        Créer
+        Ajouter
       </button>
 
       {message && <p>{message}</p>}
