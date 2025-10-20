@@ -26,6 +26,7 @@ function Update() {
 
     try {
       const response = await fetch(`/api/facts/${id}`, {
+        // logique pour modifier un élément : indication de la méthod, des paramétres de format de l'info envoyée et le parmétre du contenu envoyé
         method: "PUT",
         headers: {
           "Content-Type": "application/ld+json",
@@ -56,14 +57,14 @@ function Update() {
     <>
     <form onSubmit={handleSubmit}>
       <h2>Modifier l'anecdote</h2>
-      <label htmlFor="techno">Théme ou techno concérné:</label>
+      <label htmlFor="techno">Théme ou techno :</label>
       <input
         type="text"
         value={techno}
         onChange={(e) => setTechno(e.target.value)}
         required
       />
-      <label htmlFor="fact">L'adecdote :</label>
+      <label htmlFor="fact">L'anecdote :</label>
     
        <textarea
         value={fact}
